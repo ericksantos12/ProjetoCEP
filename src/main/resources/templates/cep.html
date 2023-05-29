@@ -11,7 +11,7 @@
     <main class = "container">
         <h1>Insira o CEP</h1>
 
-        <form action="#" th:action="@{/cep}" th:object="${cepObjeto}" method="POST">
+        <form action="#" th:action="@{/cep}" th:object="${cepForms}" method="POST">
             <label for="cep">CEP
                 <input type="text" name="cep" id="cep" th:field="*{cep}" placeholder="12345678">
             </label>
