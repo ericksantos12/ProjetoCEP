@@ -1,6 +1,6 @@
 package edu.fateczs.cep_nota_consulta;
 
-public class CepObjeto {
+public class CepForms {
     private String cep;
 
     public String getCep() {

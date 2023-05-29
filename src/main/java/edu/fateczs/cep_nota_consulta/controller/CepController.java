@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import edu.fateczs.cep_nota_consulta.CepObjeto;
+import edu.fateczs.cep_nota_consulta.CepForms;
 import edu.fateczs.cep_nota_consulta.service.ApiService;
 
 @Controller
@@ -33,8 +33,8 @@ public class CepController {
 		return "cep";
 	}
 	@PostMapping("/cep")
-	public String cep(@ModelAttribute CepObjeto cepObjeto, ModelMap model){
-		String request = apiService.fazerRequisicaoCEP(cepObjeto.getCep());
+	public String cep(@ModelAttribute CepForms cepForms, ModelMap model){
+		String request = apiService.fazerRequisicaoCEP(cepForms.getCep());
 		model.addAttribute("request", request);
 		return "cep";
 	}
