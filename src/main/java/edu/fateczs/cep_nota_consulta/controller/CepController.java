@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import edu.fateczs.cep_nota_consulta.CepForms;
+import edu.fateczs.cep_nota_consulta.NotasForms;
 import edu.fateczs.cep_nota_consulta.service.ApiService;
 
 @Controller
@@ -23,13 +24,19 @@ public class CepController {
 	}
 
 	@GetMapping("/notas")
-	public String notas(){
+	public String notas(ModelMap model){
+		model.addAttribute("notasForms", new NotasForms());
+		return "notas";
+	}
+	@PostMapping("/notas")
+	public String notas(@ModelAttribute NotasForms notasForms, ModelMap model){
+		model.addAttribute("media", notasForms.GerarMedia());
 		return "notas";
 	}
 
 	@GetMapping("/cep")
 	public String cep(ModelMap model){
-		model.addAttribute("cepObjeto", new CepObjeto());
+		model.addAttribute("cepForms", new CepForms());
 		return "cep";
 	}
 	@PostMapping("/cep")

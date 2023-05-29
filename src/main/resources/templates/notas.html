@@ -12,31 +12,44 @@
 
     <main class="container">    
 
+        <a href="./" role="button" class="contrast outline">Voltar</a>
+        
+        <br>
+        <br>
+
         <h1>Cálculo da Média</h1>
 
-        <form action="" method="POST" class="grid">
-            <label for="">Nota da P1
-                <input type="number" name="nota1" id="">
-            </label>
+        <form action="#" th:action="@{/notas}" th:object="${notasForms}" method="POST">
+            
+            <div class="grid">
+                <label for="">Nota da P1
+                    <input type="number" name="nota1" th:field="*{nota1}">
+                </label>
 
-            <label for="">Nota da P2
-                <input type="number" name="nota2" id="">
-            </label>
+                <label for="">Nota da P2
+                    <input type="number" name="nota2" th:field="*{nota2}">
+                </label>
 
-            <label for="">Projeto
-                <input type="number" name="nota3" id="">
-            </label>
+                <label for="">Projeto
+                    <input type="number" name="notaProj" th:field="*{notaProj}">
+                </label>
 
-            <label for="">Media Final
-                <input type="number" name="media" id="">
-            </label>
+                <label for="">Media Final
+                    <h2 th:text="${media}"></h2>
+                </label>
+            </div>
+
+            <br>
+
+            <div class="grid">
+        
+                <button type="submit">Calcular</button>
+                <button type="reset">Limpar</button>
+    
+            </div>
         </form>
 
-        <div class="grid">
-            <button type="submit">Calcular</button>
-            <button type="reset">Limpar</button>
 
-        </div>
 
 
     </main>
